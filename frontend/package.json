@@ -1,0 +1,52 @@
+{
+  "name": "my",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@chatscope/chat-ui-kit-react": "^2.0.3",
+    "@chatui/core": "^2.4.2",
+    "@chengsokdara/react-hooks-async": "^0.0.2",
+    "@ctrl/tinycolor": "^4.1.0",
+    "@ffmpeg/ffmpeg": "^0.12.10",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "antd": "^5.17.2",
+    "axios": "^1.6.8",
+    "hark": "^1.2.3",
+    "lamejs": "github:zhuker/lamejs",
+    "react": "^18.3.1",
+    "react-cookie": "^7.1.4",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1",
+    "react-scripts": "5.0.1",
+    "recordrtc": "^5.6.2",
+    "styled-components": "^6.1.11",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:3001"
+}

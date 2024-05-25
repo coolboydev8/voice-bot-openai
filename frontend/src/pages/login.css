@@ -1,0 +1,61 @@
+/* .submit {
+    width: "100%";
+    line-height: 1.5;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 25px;
+    background-color: #57b846;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.submit:hover {
+    background-color: #333333;
+} */
+
+.login_div {
+    max-width: 420px;
+    height: 400px;
+    margin: 5%;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 0.4rem;
+    background: hsla(0, 0%, 100%, .01);
+    box-shadow: RGBA(41, 41, 41, 0.2) 0rem 0rem 3rem;
+
+    transition: all 1s ease;
+
+    animation-name: slide;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    /* width: 384px;
+    height: 480px;
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5.6px;
+    background: hsla(0, 0%, 100%, 0.01);
+    box-shadow: RGBA(41, 41, 41, 0.2) 0rem 0rem 48rem;
+    transition: all 1s ease;
+    animation-name: login_slide__Uzt4C;
+    animation-duration: 0.5s;
+    animation-timing-function: ease; */
+}
