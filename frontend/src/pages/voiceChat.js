@@ -458,9 +458,7 @@ const VoiceChabot = () => {
 
   const onStopStreaming = () => {
     if (listener.current) {
-      // @ts-ignore
       listener.current.off("speaking", onStartSpeaking);
-      // @ts-ignore
       listener.current.off("stopped_speaking", onStopSpeaking);
       listener.current = undefined;
     }
