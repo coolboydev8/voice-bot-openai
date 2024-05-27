@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Card, Row, Col, List, Badge } from "antd";
-import useResponsive from "../hook/useResponsive";
 import styled from "styled-components";
-import { LockOutlined, EyeOutlined, PlayCircleOutlined, ClockCircleOutlined, LogoutOutlined, LeftCircleOutlined } from "@ant-design/icons";
+import {
+  LockOutlined,
+  EyeOutlined,
+  PlayCircleOutlined,
+  ClockCircleOutlined,
+  LogoutOutlined,
+  // LeftCircleOutlined,
+} from "@ant-design/icons";
 import { useNavigate, Link } from "react-router-dom";
 import Http from "../utils/http";
 import { getUserId } from "../utils/auth";
@@ -11,23 +17,23 @@ import { logout } from "../utils/auth";
 
 const StyledCard = styled.div`
   border-width: 2px;
-  background :#1034e62b;
-  border:2px solid hsla(0, 0%, 100%, 0.7);
+  background: #1034e62b;
+  border: 2px solid hsla(0, 0%, 100%, 0.7);
   width: 80%;
-  maxWidth:600px;
+  maxwidth: 600px;
   height: 80%;
   border-radius: 20px;
-  padding:20px;
-  overflow-y:auto;
-`
+  padding: 20px;
+  overflow-y: auto;
+`;
 const LockDiv = styled.div`
-  width: 100%;  // Adjust size as needed
-  height: 100px;  // Adjust size as needed
-  background: #333;  // Dark background
+  width: 100%; // Adjust size as needed
+  height: 100px; // Adjust size as needed
+  background: #333; // Dark background
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;  // Adjust the color of the SVG if needed
+  color: white; // Adjust the color of the SVG if needed
 `;
 
 const TopicList = () => {
@@ -43,10 +49,8 @@ const TopicList = () => {
     }
     setTopicArray(dataList);
     getProgress();
-  }, [])
-  useEffect(() => {
-
-  }, [currentDay, lastTime])
+  }, []);
+  useEffect(() => {}, [currentDay, lastTime]);
   const getProgress = async () => {
     try {
       const user_id = await getUserId();
@@ -57,7 +61,9 @@ const TopicList = () => {
       });
       if (progressResult.data.result.length) {
         setCurrentDay(progressResult.data.result.length + 1);
-        const array = progressResult.data.result.sort((a, b) => { return a.tpoic_day - b.topic_day });
+        const array = progressResult.data.result.sort((a, b) => {
+          return a.tpoic_day - b.topic_day;
+        });
         setLastTime(array[0].created_at);
         const currentDate = new Date();
         const lstime = new Date(array[0].created_at);
@@ -65,21 +71,25 @@ const TopicList = () => {
         console.log(remainSeconds);
         if (remainSeconds <= 0) {
           setPossibility(true);
-        }
-        else {
+        } else {
           setPossibility(false);
         }
       }
-
     } catch (error) {
       console.error("Error fetching data", error);
     }
-  }
+  };
   return (
     <>
       <div className="header">
-        <Row style={{ display: 'flex', flexDirection: 'row-reverse' }}>
-          <LogoutOutlined onClick={() => { logout(); navigate("/") }} style={{ fontSize: '25px', marginRight: '10px', float: 'right' }} />
+        <Row style={{ display: "flex", flexDirection: "row-reverse" }}>
+          <LogoutOutlined
+            onClick={() => {
+              logout();
+              navigate("/");
+            }}
+            style={{ fontSize: "25px", marginRight: "10px", float: "right" }}
+          />
         </Row>
       </div>
       <StyledCard>
@@ -97,46 +107,104 @@ const TopicList = () => {
           renderItem={(item, index) => {
             return (
               <List.Item>
-                {
-                  item.day < currentDay ?
-                    <Badge.Ribbon text={"Day" + item.day} color="blue">
-                      <div style={{ backgroundImage: `url('./assets/days/Day${item.day}.png')`, height: '110px', backgroundSize: 'cover', borderRadius: '10%' }}>
-                        <div onClick={() => navigate(`/review/${item.day}`)} style={{ width: '100%', height: '100%', borderRadius: '10%', display: 'flex', justifyContent: "center", background: "#73c7539c" }}>
-                          <EyeOutlined style={{ fontSize: '45px' }} />
-                        </div>
+                {item.day < currentDay ? (
+                  <Badge.Ribbon text={"Day" + item.day} color="blue">
+                    <div
+                      style={{
+                        backgroundImage: `url('./assets/days/Day${item.day}.png')`,
+                        height: "110px",
+                        backgroundSize: "cover",
+                        borderRadius: "10%",
+                      }}
+                    >
+                      <div
+                        onClick={() => navigate(`/review/${item.day}`)}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          borderRadius: "10%",
+                          display: "flex",
+                          justifyContent: "center",
+                          background: "#73c7539c",
+                        }}
+                      >
+                        <EyeOutlined style={{ fontSize: "45px" }} />
                       </div>
-                    </Badge.Ribbon>
-                    : (
-                      item.day == currentDay ?
-                        <Badge.Ribbon text={"Day" + item.day} color="green">
-                          <div style={{ backgroundImage: `url('./assets/days/Day${item.day}.png')`, height: '110px', backgroundSize: 'cover', borderRadius: '10%' }}>
-                            {possiblility ?
-
-                              <div onClick={() => navigate(`/topic/${item.day}`)} style={{ width: '100%', height: '100%', borderRadius: '10%', display: 'flex', justifyContent: "center" }}>
-                                <PlayCircleOutlined style={{ fontSize: '45px', color: '#63f41c' }} />
-                              </div> :
-                              <div style={{ width: '100%', height: '100%', borderRadius: '10%', display: 'flex', justifyContent: "center", background: '#14a7d142' }}>
-                                <ClockCircleOutlined style={{ fontSize: '45px', color: '#1cf4e8' }} />
-                              </div>
-                            }
-                          </div>
-                        </Badge.Ribbon>
-                        :
-                        <div style={{ backgroundImage: `url('./assets/days/Day${item.day}.png')`, height: '110px', backgroundSize: 'cover', borderRadius: '10%' }}>
-                          <div style={{ width: '100%', height: '100%', borderRadius: '10%', display: 'flex', justifyContent: "center", background: "#9053c7ba" }}>
-                            <LockOutlined style={{ fontSize: '45px' }} />
-                          </div>
+                    </div>
+                  </Badge.Ribbon>
+                ) : item.day == currentDay ? (
+                  <Badge.Ribbon text={"Day" + item.day} color="green">
+                    <div
+                      style={{
+                        backgroundImage: `url('./assets/days/Day${item.day}.png')`,
+                        height: "110px",
+                        backgroundSize: "cover",
+                        borderRadius: "10%",
+                      }}
+                    >
+                      {possiblility ? (
+                        <div
+                          onClick={() => navigate(`/topic/${item.day}`)}
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            borderRadius: "10%",
+                            display: "flex",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <PlayCircleOutlined
+                            style={{ fontSize: "45px", color: "#63f41c" }}
+                          />
                         </div>
-                    )
-                }
+                      ) : (
+                        <div
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            borderRadius: "10%",
+                            display: "flex",
+                            justifyContent: "center",
+                            background: "#14a7d142",
+                          }}
+                        >
+                          <ClockCircleOutlined
+                            style={{ fontSize: "45px", color: "#1cf4e8" }}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  </Badge.Ribbon>
+                ) : (
+                  <div
+                    style={{
+                      backgroundImage: `url('./assets/days/Day${item.day}.png')`,
+                      height: "110px",
+                      backgroundSize: "cover",
+                      borderRadius: "10%",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        borderRadius: "10%",
+                        display: "flex",
+                        justifyContent: "center",
+                        background: "#9053c7ba",
+                      }}
+                    >
+                      <LockOutlined style={{ fontSize: "45px" }} />
+                    </div>
+                  </div>
+                )}
               </List.Item>
-            )
+            );
           }}
-        >
-        </List>
+        ></List>
       </StyledCard>
     </>
-  )
+  );
 };
 
 export default TopicList;
