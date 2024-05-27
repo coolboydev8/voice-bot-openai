@@ -1,7 +1,7 @@
 const Topic = require("../models/Topic");
 const History = require("../models/History");
 const { default: mongoose } = require("mongoose");
-
+//check
 module.exports.check = async (req, res) => {
   const user_id = req.body._id;
   let days = await History.aggregate([
@@ -50,22 +50,22 @@ module.exports.getTaskList = async (req, res) => {
 module.exports.getProgress = async (req, res) => {
   const user_id = req.body.user_id;
   console.log(user_id);
-  await History.find({ user_id: user_id, flag: true }).then(result => {
+  await History.find({ user_id: user_id, flag: true }).then((result) => {
     res.status(200).json({ result });
-  })
-}
+  });
+};
 
 module.exports.createHistoy = async (req, res) => {
   const historyInstance = new History(req.body);
 
   // Save the instance to the database
-  historyInstance.save()
-    .then(r => {
+  historyInstance
+    .save()
+    .then((r) => {
       res.status(200).json({ r });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log("err", err);
       res.status(500).json({ error: "Failed to save history" });
     });
-
-}
+};
