@@ -26,6 +26,7 @@
     order: 1;
     background: #323033bd;
     border-color: #69b1ff;
+    /* Here is main background color*/
     justify-content: flex-end;
     align-items: flex-end;
     border-top-left-radius: 0px;

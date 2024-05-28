@@ -8,4 +8,4 @@ export const silenceRemoveCommand =
 
 export const whisperApiEndpoint = "https://api.openai.com/v1/audio/";
 
-export const rasaApiEndpoint = "https://localhost:5005/webhooks/rest/webhook/";
+export const rasaApiEndpoint = "https://localhost:5005/webhooks/rest/webhook/"; // Rasa Endpoint
