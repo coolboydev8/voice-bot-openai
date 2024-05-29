@@ -54,8 +54,6 @@ const TopicList = () => {
   const getProgress = async () => {
     try {
       const user_id = await getUserId();
-      console.log(user_id);
-      console.log(user_id._id);
       const progressResult = await Http.post("/task/getProgress", {
         user_id: user_id._id,
       });
