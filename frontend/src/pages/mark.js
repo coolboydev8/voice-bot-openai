@@ -37,11 +37,14 @@ const Mark = () => {
   const fetchData = async () => {
     if (id.id) {
       const user_id = await getUserId();
-      await Http.post("/mark/getMark", { user_id, topic_num: id.id }).then((result) => {
-        setResponse(result.data.score);
-      });
+      await Http.post("/mark/getMark", { user_id, topic_num: id.id }).then(
+        (result) => {
+          setResponse(result.data.score);
+        }
+      );
     }
   };
+  //call fetchData
   useEffect(() => {
     fetchData();
   }, []);
