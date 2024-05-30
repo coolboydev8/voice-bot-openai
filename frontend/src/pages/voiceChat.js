@@ -80,7 +80,7 @@ const VoiceChabot = () => {
   const { isMobile, isTablet } = useResponsive();
   const [flag, setFlag] = useState(false);
   const [endFlag, setEndFlag] = useState(false);
-  const [icon, setIcon] = useState(<AudioOutlined />); // set initial voice button
+  const [icon, setIcon] = useState(<AudioOutlined />);
   const [speaking, setSpeaking] = useState(false);
   const [recordFlag, setRecordFlag] = useState(false);
   const [userFlag, setUserFlag] = useState(false);
