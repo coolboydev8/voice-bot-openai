@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Form, Input, Card, Col, Row, notification } from "antd";
-import useResponsive from "../hook/useResponsive";
 import { useNavigate, Link } from "react-router-dom";
 import { openNotification } from "../utils/notification";
 import { login } from "../utils/auth";
