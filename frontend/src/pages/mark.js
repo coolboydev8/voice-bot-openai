@@ -5,11 +5,7 @@ import { redirect, useParams, useNavigate } from "react-router-dom";
 import { Card, Result, Row, Typography } from "antd";
 import Http from "../utils/http";
 import { getUserId } from "../utils/auth";
-import {
-  LoadingOutlined,
-  HomeOutlined,
-  LogoutOutlined,
-} from "@ant-design/icons";
+import { HomeOutlined, LogoutOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { logout } from "../utils/auth";
 const Mark = () => {
