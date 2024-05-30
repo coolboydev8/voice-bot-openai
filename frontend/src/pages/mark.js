@@ -44,7 +44,6 @@ const Mark = () => {
       );
     }
   };
-  //call fetchData
   useEffect(() => {
     fetchData();
   }, []);
