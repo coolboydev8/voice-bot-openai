@@ -1,18 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Form,
-  Input,
-  Card,
-  Col,
-  Row,
-  Divider,
-  Typography,
-  Statistic,
-  Badge,
-  Progress,
-  Layout,
-} from "antd";
+import { Button, Card, Row } from "antd";
 import {
   CheckSquareOutlined,
   LogoutOutlined,
