@@ -9,13 +9,7 @@ import { HomeOutlined, LogoutOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 import { logout } from "../utils/auth";
 const Mark = () => {
-  const { isMobile, isTablet } = useResponsive();
-  const [isLoading, setLoading] = useState(true);
-  const [mark, setMark] = useState("Nothing to show");
   const id = useParams();
-  const [score, setScore] = useState({});
-  const [overall, setOverall] = useState({});
-  const [suggestion, setSuggestion] = useState({});
   const [response, setResponse] = useState("");
   const navigate = useNavigate();
   const StyledCard = styled.div`
