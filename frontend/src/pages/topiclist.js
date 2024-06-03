@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Row, Col, List, Badge } from "antd";
+import { Row, List, Badge } from "antd";
 import styled from "styled-components";
 import {
   LockOutlined,
@@ -7,12 +7,10 @@ import {
   PlayCircleOutlined,
   ClockCircleOutlined,
   LogoutOutlined,
-  // LeftCircleOutlined,
 } from "@ant-design/icons";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Http from "../utils/http";
 import { getUserId } from "../utils/auth";
-import { new_double } from "lamejs/src/js/common";
 import { logout } from "../utils/auth";
 
 const StyledCard = styled.div`
