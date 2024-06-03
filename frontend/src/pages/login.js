@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Form, Input, Card, Col, Row, notification } from "antd";
-import { useNavigate, Link } from "react-router-dom";
-import { openNotification } from "../utils/notification";
+import { useNavigate } from "react-router-dom";
 import { login } from "../utils/auth";
 import Http from "../utils/http";
 import styled from "styled-components";
