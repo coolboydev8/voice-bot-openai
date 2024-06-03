@@ -2,10 +2,8 @@ import React from "react";
 import useResponsive from "../hook/useResponsive";
 import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Button, Input, Card, Row, Tag, Popconfirm, notification } from "antd";
+import { Button, Input, Row, Tag } from "antd";
 import {
-  OpenAIFilled,
-  ThunderboltOutlined,
   EditOutlined,
   CloseOutlined,
   SlackOutlined,
